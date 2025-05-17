@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone Utilization - Cargo Stowage Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Cargo Stowage Manager</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="/waste">Waste</a></li>
+                    <li><a href="/add_items">Add Items</a></li>
+                    <li><a href="/ZoneUtil" class="active">Zone Util</a></li>
+                    <li><a href="/activity">Activity Log</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Zone Utilization</h1>
+        <p>View the utilization of different zones in the cargo system</p>
+
+        <div class="section">
+            <h2>Zone Overview</h2>
+            <div id="zone-overview"></div>
+        </div>
+
+        <div class="section">
+            <h2>Zone Details</h2>
+            <div class="table-container">
+                <table id="zone-details-table">
+                    <thead>
+                        <tr>
+                            <th>Zone Name</th>
+                            <th>Total Volume</th>
+                            <th>Used Volume</th>
+                            <th>Utilization</th>
+                            <th>Containers</th>
+                            <th>Items</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Zone details will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Container Arrangement</h2>
+            <div id="container-arrangement"></div>
+            <button id="export-arrangement">Export Arrangement</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/zone_util.js') }}"></script>
+</body>
+</html>

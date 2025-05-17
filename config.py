@@ -1,0 +1,17 @@
+import os
+
+# Flask configuration
+DEBUG = True
+SECRET_KEY = os.getenv('SECRET_KEY', 'cargo_stowage_secret_key')
+
+# Algorithm parameters
+GENETIC_ALGORITHM_POPULATION_SIZE = 50
+GENETIC_ALGORITHM_GENERATIONS = 20
+GENETIC_ALGORITHM_MUTATION_RATE = 0.1
+
+GRASP_MAX_ITERATIONS = 100
+TABU_LIST_SIZE = 10
+
+# System parameters
+DEFAULT_MAX_WEIGHT = 1000  # kg
+DEFAULT_SYSTEM_DATE = "2025-04-06"  # ISO format

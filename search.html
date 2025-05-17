@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Items - Cargo Stowage Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Cargo Stowage Manager</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/search" class="active">Search</a></li>
+                    <li><a href="/waste">Waste</a></li>
+                    <li><a href="/add_items">Add Items</a></li>
+                    <li><a href="/ZoneUtil">Zone Util</a></li>
+                    <li><a href="/activity">Activity Log</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Search Items</h1>
+        <p>Find items in the cargo system and get retrieval instructions</p>
+
+        <div class="section">
+            <form id="search-form">
+                <div class="form-group">
+                    <label for="search-type">Search by</label>
+                    <select id="search-type">
+                        <option value="itemName">Item Name</option>
+                        <option value="itemId">Item ID</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="search-input">Search term</label>
+                    <input type="text" id="search-input" placeholder="Enter search term..." required>
+                </div>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div id="search-results" class="search-results"></div>
+
+        <div id="retrieval-steps" class="section" style="display: none;">
+            <h2>Retrieval Instructions</h2>
+            <div id="steps-container"></div>
+            <button id="confirm-retrieval" class="btn">Confirm Retrieval</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+</body>
+</html>

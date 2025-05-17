@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Retrieval - Cargo Stowage Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Cargo Stowage Manager</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="/retrieval" class="active">Retrieval</a></li>
+                    <li><a href="/waste">Waste</a></li>
+                    <li><a href="/add_items">Add Items</a></li>
+                    <li><a href="/ZoneUtil">Zone Util</a></li>
+                    <li><a href="/activity">Activity Log</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Item Retrieval</h1>
+        <p>Retrieve items from the cargo system</p>
+
+        <div class="section">
+            <h2>Enter Item Details</h2>
+            <form id="retrieval-form">
+                <div class="form-group">
+                    <label for="item-id">Item ID</label>
+                    <input type="text" id="item-id" required>
+                </div>
+                <button type="submit">Find Retrieval Path</button>
+            </form>
+        </div>
+
+        <div id="item-details" class="section" style="display: none;"></div>
+
+        <div id="retrieval-steps" class="section" style="display: none;">
+            <h2>Retrieval Instructions</h2>
+            <div id="steps-container"></div>
+            <button id="confirm-retrieval" class="btn">Confirm Retrieval</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/retrieval.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Placement - Cargo Stowage Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Cargo Stowage Manager</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="/placement" class="active">Placement</a></li>
+                    <li><a href="/waste">Waste</a></li>
+                    <li><a href="/add_items">Add Items</a></li>
+                    <li><a href="/ZoneUtil">Zone Util</a></li>
+                    <li><a href="/activity">Activity Log</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Item Placement</h1>
+        <p>Use this interface to generate optimal placement recommendations for items</p>
+
+        <div class="section">
+            <h2>Import Items</h2>
+            <form id="import-items-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="items-file">Upload Items CSV</label>
+                    <input type="file" id="items-file" name="file" accept=".csv">
+                </div>
+                <button type="submit">Import Items</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Available Items</h2>
+            <div class="table-container">
+                <table id="items-table">
+                    <thead>
+                        <tr>
+                            <th>Item ID</th>
+                            <th>Name</th>
+                            <th>Dimensions (W×D×H)</th>
+                            <th>Priority</th>
+                            <th>Preferred Zone</th>
+                            <th>Select</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Items will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Available Containers</h2>
+            <div class="table-container">
+                <table id="containers-table">
+                    <thead>
+                        <tr>
+                            <th>Container ID</th>
+                            <th>Zone</th>
+                            <th>Dimensions (W×D×H)</th>
+                            <th>Space Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Containers will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Generate Placement</h2>
+            <button id="generate-placement-btn">Generate Placement Recommendations</button>
+        </div>
+
+        <div class="section" id="placement-results" style="display: none;">
+            <h2>Placement Recommendations</h2>
+            <div class="table-container">
+                <table id="placements-table">
+                    <thead>
+                        <tr>
+                            <th>Item ID</th>
+                            <th>Item Name</th>
+                            <th>Container ID</th>
+                            <th>Position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Placements will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="rearrangement-section" style="display: none;">
+                <h3>Rearrangement Steps</h3>
+                <div class="table-container">
+                    <table id="rearrangements-table">
+                        <thead>
+                            <tr>
+                                <th>Step</th>
+                                <th>Action</th>
+                                <th>Item ID</th>
+                                <th>From</th>
+                                <th>To</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rearrangements will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button id="confirm-placement-btn">Confirm Placement</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/placement.js') }}"></script>
+</body>
+</html>
